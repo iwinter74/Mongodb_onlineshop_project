@@ -1,0 +1,33 @@
+<%-include('./partials/header') %>
+<section id="new">
+    <h1>ADD A NEW PRODUCT</h1>
+    <img id="line" src="/img/Line 1.png" alt="">
+    <form action="/new" method="POST">
+        <input placeholder="Product name" type="text" name="name" id="">
+        <input placeholder="Url Picture" type="text" name="url" id="">
+        <input placeholder="Company" type="text" name="company" id="">
+        <input placeholder="Price" type="text" name="price" id="">
+        <textarea placeholder="Write your article here..." name="text" id="" cols="30" rows="10"></textarea>
+        <input type="submit" value="ADD PRODUCT">
+    </form>
+
+</section>
+<section id="random">
+    <img id="eyes" src="/img/eyes.png" alt="">
+    <h1>RANDOM PRODUCTS</h1>
+    <div id="random_container">
+    <% randomArr.forEach(element => { %>
+    <article>
+        <a href="/details/<%= element._id %>"> <img src="<%= element['Product-picture-Link'] %>" alt=""> </a>
+        <div class="item_container">
+            <div>
+                <h3><%= element['Product-name'] %> </h3>
+                <p><%= element.Company %> </p>
+            </div>
+            <h3><%= element.Price %> </h3>
+        </div>
+    </article>
+    <% }) %>
+</div>
+</section>
+<%-include('./partials/footer') %>

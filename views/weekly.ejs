@@ -1,0 +1,18 @@
+<%-include('./partials/header') %>
+
+<section id="weekly">
+    <% randomWeekly.forEach(element => { %>
+        <article>
+            <a href="/details/<%= element._id %>"> <img src="<%= element['Product-picture-Link'] %>" alt=""> </a>
+            <div class="item_container">
+                <div>
+                    <h3><%= element['Product-name'] %> </h3>
+                    <p><%= element.Company %> </p>
+                </div>
+                <h3><%= element.Price %> </h3>
+            </div>
+        </article>
+        <% }) %>
+</section>
+
+<%-include('./partials/footer') %>

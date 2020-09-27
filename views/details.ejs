@@ -1,0 +1,56 @@
+<%-include('./partials/header') %>
+<section id="update">
+<a id="edit_btn" href="#edit">Edit</a>
+<a href="/details/<%= item._id %>/delete">Delete</a>
+</section>
+<section id="details">
+    <img src="<%= item['Product-picture-Link'] %> " alt="">
+        <div class="item_container">
+            <div>
+                <h3><%= item['Product-name'] %> </h3>
+                <p><%= item.Company %> </p>
+            </div>
+            <h3><%= item.Price %> </h3>
+        </div>
+</section>
+<section id="description">
+    <h2>Product Description:</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam officiis iure quo ab et dolor, asperiores sit, vel nobis esse labore tempora laborum. Delectus, consectetur amet ad aliquam blanditiis similique voluptatem numquam eos aperiam cupiditate quis eum, esse quo facilis doloremque commodi aliquid. Recusandae aperiam facere incidunt iure beatae quae reprehenderit hic ad fugiat. Libero iusto deleniti minus repudiandae sunt.</p>
+    <div id="anchor_container">
+    <a href="<%= item['Link-shop'] %> " target="_blank">BUY PRODUCT</a>
+    </div>
+</section>
+<section id="edit" class="hidden">
+    <h1>EDIT PRODUCT</h1>
+    <form action="/details/<%= item._id %>/edit" method="POST">
+        <input placeholder="Product name" type="text" name="name" id="">
+        <input placeholder="Url Picture" type="text" name="url" id="">
+        <input placeholder="Company" type="text" name="company" id="">
+        <input placeholder="Price" type="text" name="price" id="">
+        <textarea placeholder="Write your article here..." name="text" id="" cols="30" rows="10"></textarea>
+        <input type="submit" value="EDIT PRODUCT">
+    </form>
+
+</section>
+
+<footer>
+    <h2>THE DESIGN SHOP</h2>
+</footer>
+
+<script>
+const editBtn = document.getElementById("edit_btn")
+const editSection = document.getElementById("edit")
+
+editBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    editSection.classList.toggle("hidden")
+})
+
+
+</script>
+</body>
+
+</html>
+
+
+
